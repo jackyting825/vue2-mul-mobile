@@ -9,11 +9,15 @@
 </template>
 
 <script>
-import mui from 'mui'
 // 引入mui的css,目前会导致build的时候编译无法通过
 // import '@/assets/css/mui.css'
 import HeaderTop from '@components/Header'
 import Hello from '@components/Hello'
+import axios from 'axios'
+
+import {
+  szlngURL
+} from '../../api/index'
 
 export default {
   name: 'app',
@@ -29,12 +33,27 @@ export default {
     }
   },
   mounted() {
-    console.log(this.title)
-    console.log(mui)
+    this.testRequest()
   },
   components: {
     HeaderTop,
     Hello
+  },
+  methods: {
+    testRequest: function() {
+      axios.post(szlngURL, {
+        'app_key': '41dad0914f72f5f6bda0bd77871e59b8',
+        'app_secret': 'dca76aaf60bf666e4346d7bd233a7d7d',
+        'method': 'mobBizAction.getUserIndexList',
+        'access_token': '37c48ef9bffdb0f6fd438fd4471797f1'
+      })
+        .then(function(response) {
+          console.log(response)
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+    }
   }
 }
 </script>
