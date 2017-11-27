@@ -1,6 +1,8 @@
 <template>
 <div id="app">
   <h1>index页面(<small><a href="./login.html">登录</a></small>)</h1>
+  <button @click="testClick">测试原生传递的数据</button>
+  <div>{{msg}}</div>
   <tab></tab>
   <keep-alive>
     <router-view></router-view>
@@ -13,6 +15,7 @@ import Hello from '@components/Hello'
 import Tab from './components/tab/Tab'
 import VueHead from 'vue-head'
 import Vue from 'vue'
+
 import {
   Toast
 } from 'mint-ui'
@@ -30,15 +33,46 @@ export default {
   },
   data() {
     return {
-      title: '首页'
+      title: '首页',
+      msg: ''
     }
   },
   mounted() {
-    Toast({
-      message: '加载成功,我是饿了么的提示框'
-    })
+    var _this = this
+    console.log('mounted')
+    document.addEventListener('plusready', function() {
+      var _BARCODE = 'plugintest'
+      var B = window.plus.bridge
+      var plugintest = {
+        PluginTestFunctionSyncArrayArgu: function(Argus) {
+          return B.execSync(_BARCODE, 'PluginTestFunctionSyncArrayArgu', [Argus])
+        }
+      }
+      window.plus.plugintest = plugintest
+      _this.test()
+    }, true)
+  },
+  beforeCreate() {
+    console.log('beforeCreate')
+  },
+  created() {
+    console.log('created')
+  },
+  beforeMount() {
+    console.log('beforeMount')
   },
   methods: {
+    testClick() {
+      this.test()
+    },
+    test() {
+      var Argus = plus.plugintest.PluginTestFunctionSyncArrayArgu([])
+      alert(Argus.a + '_' + Argus.b + '_' + Argus.c + '_' + Argus.d)
+      this.msg = '接收到' + Argus.a + '_' + Argus.b + '_' + Argus.c + '_' + Argus.d
+      Toast({
+        message: this.msg
+      })
+    },
     updateTitle(title) { // vue-head 更新页面的title
       let _this = this
       window.setTimeout(function() {
