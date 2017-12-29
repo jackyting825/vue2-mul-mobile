@@ -14,6 +14,7 @@
 import HeaderTop from '@components/Header'
 import Hello from '@components/Hello'
 import axios from 'axios'
+import testImgURL from '../../../static/images/test/test.png'
 
 import {
   szlngURL
@@ -29,7 +30,7 @@ export default {
         name: 'index'
       },
       // 本地图片如果放在assets中,url-loader会无法识别他.会导致图片无法显示
-      img: '../static/images/logo.png'
+      img: testImgURL
     }
   },
   mounted() {

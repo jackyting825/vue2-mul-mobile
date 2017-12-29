@@ -123,3 +123,4 @@ JavaScript工具类存放在src/utils下
 src/template这个目录不要做任何修改
 src/api下面的index.js存放index模块的远程ajax的url,其他模块类似
 src/components目录存放整个多页面项目公用的组件
+手机多模块开放建议在static文件夹下建自己模块名字的文件夹,下面存放该模块的图片,这样集成到原生的时候方便删除不需要的模块资源,例子中新建了index和test这2个模块文件夹
