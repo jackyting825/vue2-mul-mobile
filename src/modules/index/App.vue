@@ -2,6 +2,7 @@
 <div id="app">
   <h1>index页面(<small><a href="./login.html">登录</a></small>)</h1>
   <button @click="testClick">测试原生传递的数据</button>
+  <button @click="backto">退出到原生</button>
   <div>{{msg}}</div>
   <tab></tab>
   <keep-alive>
@@ -38,8 +39,14 @@ export default {
     }
   },
   mounted() {
-    var _this = this
     console.log('mounted')
+  },
+  beforeCreate() {
+    console.log('beforeCreate')
+  },
+  created() {
+    console.log('created')
+    var _this = this
     document.addEventListener('plusready', function() {
       var _BARCODE = 'plugintest'
       var B = window.plus.bridge
@@ -50,18 +57,28 @@ export default {
       }
       window.plus.plugintest = plugintest
       _this.test()
+      // Android复写返回键操作
+      plus.key.addEventListener('backbutton', function() {
+        if (_this.$router.currentRoute.name === 'Messageinfo') { // MyTaskList
+          plus.runtime.quit()
+        } else {
+          // _this.$router.back(-1)
+        }
+      }, false)
     }, true)
-  },
-  beforeCreate() {
-    console.log('beforeCreate')
-  },
-  created() {
-    console.log('created')
   },
   beforeMount() {
     console.log('beforeMount')
   },
   methods: {
+    backto() {
+      if (plus.os.name === 'iOS') {
+        var notiClass = plus.ios.importClass('NSNotificationCenter')
+        notiClass.defaultCenter().postNotificationNameobject('CloseWebAPP', null)
+      } else {
+        window.plus.runtime.quit()
+      }
+    },
     testClick() {
       this.test()
     },
