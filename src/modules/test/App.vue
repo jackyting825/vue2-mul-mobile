@@ -14,7 +14,7 @@
 import HeaderTop from '@components/Header'
 import Hello from '@components/Hello'
 import axios from 'axios'
-import testImgURL from '../../../static/images/test/test.png'
+import testImgURL from '~/images/test/test.png'
 
 import {
   szlngURL

@@ -24,6 +24,7 @@ var baseWebpackConfig = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      '~': resolve('static'),
       '@components': resolve('src/components')
     }
   },

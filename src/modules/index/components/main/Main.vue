@@ -9,7 +9,7 @@
 
 <script>
 import Hello from '@components/Hello'
-import logo1 from '../../../../../static/images/index/logo1.png'
+import logo1 from '~/images/index/logo1.png'
 
 export default {
   components: {
