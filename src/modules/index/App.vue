@@ -43,23 +43,22 @@ export default {
   },
   beforeCreate() {
     console.log('beforeCreate')
-  },
-  created() {
-    console.log('created')
-    var _this = this
+    let _this = this
     document.addEventListener('plusready', function() {
-      var _BARCODE = 'plugintest'
-      var B = window.plus.bridge
-      var plugintest = {
-        PluginTestFunctionSyncArrayArgu: function(Argus) {
-          return B.execSync(_BARCODE, 'PluginTestFunctionSyncArrayArgu', [Argus])
+      let _BARCODE = 'moduleZeroPlug'
+      let B = window.plus.bridge
+      let moduleZeroPlug = {
+        TestFunctionSyncArrayArgu: function(Argus1, Argus2, Argus3) {
+          return B.execSync(_BARCODE, 'TestFunctionSyncArrayArgu', [Argus1, Argus2, Argus3])
         }
       }
-      window.plus.plugintest = plugintest
+      window.plus.moduleZeroPlug = moduleZeroPlug
       _this.test()
       // Android复写返回键操作
       plus.key.addEventListener('backbutton', function() {
-        if (_this.$router.currentRoute.name === 'Messageinfo') { // MyTaskList
+        let currentRouteName = _this.$router.currentRoute.name
+        console.log('currentRouteName=' + currentRouteName)
+        if (currentRouteName === 'Resource' || currentRouteName === 'Main' || currentRouteName === 'Me') { // MyTaskList
           plus.runtime.quit()
         } else {
           // _this.$router.back(-1)
@@ -67,13 +66,16 @@ export default {
       }, false)
     }, true)
   },
+  created() {
+    console.log('created')
+  },
   beforeMount() {
     console.log('beforeMount')
   },
   methods: {
     backto() {
       if (plus.os.name === 'iOS') {
-        var notiClass = plus.ios.importClass('NSNotificationCenter')
+        let notiClass = plus.ios.importClass('NSNotificationCenter')
         notiClass.defaultCenter().postNotificationNameobject('CloseWebAPP', null)
       } else {
         window.plus.runtime.quit()
@@ -83,8 +85,7 @@ export default {
       this.test()
     },
     test() {
-      var Argus = plus.plugintest.PluginTestFunctionSyncArrayArgu([])
-      alert(Argus.a + '_' + Argus.b + '_' + Argus.c + '_' + Argus.d)
+      let Argus = plus.moduleZeroPlug.TestFunctionSyncArrayArgu('A', 'B', 'C')
       this.msg = '接收到' + Argus.a + '_' + Argus.b + '_' + Argus.c + '_' + Argus.d
       Toast({
         message: this.msg

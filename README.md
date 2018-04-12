@@ -2,8 +2,6 @@
 
 > 基于vue-cli的多页配置实例
 
-https://github.com/CNCrazyMoon/vue-mul-cli.git
-
 ## Build Setup
 
 ``` bash
@@ -118,9 +116,16 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 本项目是多页面结构,
 modules下存放各个页面,每个页面类似一个单页面应用.有自己的组件路由,需要按照文件夹的方式独立拜访
 
-图片资源存放到static文件夹下面对应的目录
-JavaScript工具类存放在src/utils下
-src/template这个目录不要做任何修改
-src/api下面的index.js存放index模块的远程ajax的url,其他模块类似
-src/components目录存放整个多页面项目公用的组件
-手机多模块开放建议在static文件夹下建自己模块名字的文件夹,下面存放该模块的图片,这样集成到原生的时候方便删除不需要的模块资源,例子中新建了index和test这2个模块文件夹
+>图片资源存放到static文件夹下面对应的目录
+
+>JavaScript工具类存放在src/utils下
+
+>src/template这个目录不要做任何修改
+
+>src/api下面的index.js存放index模块的远程ajax的url,其他模块类似
+
+>src/components目录存放整个多页面项目公用的组件
+
+>src/assets/css/common.js定义了路由转场动画和禁用手机长按出现复制选项
+
+>手机多模块开放建议在static文件夹下建自己模块名字的文件夹,下面存放该模块的图片,这样集成到原生的时候方便删除不需要的模块资源,例子中新建了index和test这2个模块文件夹

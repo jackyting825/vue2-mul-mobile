@@ -1,6 +1,6 @@
 import 'normalize.css'  // css reset
 import 'mint-ui/lib/style.css'  // mint-ui css
-import '../../assets/css/common.css'
+import '../../assets/css/common.css' // 路由动画和禁止手机长按出现复制菜单
 import Vue from 'vue'
 import App from './App'
 import MintUI from 'mint-ui' // mint-ui

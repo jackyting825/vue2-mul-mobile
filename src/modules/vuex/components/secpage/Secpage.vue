@@ -1,5 +1,5 @@
 <template>
-<div class="content">
+<div class="content transition-wrapper">
   <p>
     Secpage ,store里面count的值第一种方式获取:{{$store.state.count}}
   </p>
@@ -13,6 +13,14 @@
     通过store getter获取store里面count的值第获取:{{val}}
   </p>
   <br/>
+  <p>
+    <button @click="send">获取原生传递过来的信息</button>
+  </p>
+  <br/>
+  <p>
+    <button @click="send1">传递参数给原生并获取原生传送的信息</button>
+  </p>
+  <br/>
   <a href="javascript:void(0)" @click="goback">返回上一页</a>
 </div>
 </template>
@@ -24,6 +32,9 @@ import {
   mapState,
   mapGetters
 } from 'vuex'
+import {
+  Toast
+} from 'mint-ui'
 
 export default {
   store,
@@ -45,6 +56,22 @@ export default {
   methods: {
     goback() {
       this.$router.go(-1)
+    },
+    send1() {
+      let Argus = plus.vuexplugin.PluginTestFunctionSync('A', 'B', 'C', 'D')
+      console.log(Argus)
+      this.msg = Argus
+      Toast({
+        message: this.msg
+      })
+    },
+    send() {
+      let Argus = plus.vuexplugin.PluginTestFunctionSyncArrayArgu([])
+      alert(Argus.a + '_' + Argus.b + '_' + Argus.c + '_' + Argus.d)
+      this.msg = '接收到' + Argus.a + '_' + Argus.b + '_' + Argus.c + '_' + Argus.d
+      Toast({
+        message: this.msg
+      })
     }
   }
 }

@@ -3,7 +3,7 @@
   <div class="header">
     <mt-header fixed title="我是主界面title"></mt-header>
   </div>
-  <div class="content">
+  <div class="content transition-wrapper">
     <transition :name="transitionName">
         <navigation>
           <router-view></router-view>
@@ -40,6 +40,31 @@ export default {
   },
   beforeCreate() {
     console.log('beforeCreate')
+    let _this = this
+    document.addEventListener('plusready', function() {
+      let _BARCODE = 'vuexplugin'
+      let B = window.plus.bridge
+      let vuexplugin = {
+        PluginTestFunctionSyncArrayArgu: function(Argus) {
+          return B.execSync(_BARCODE, 'PluginTestFunctionSyncArrayArgu', [Argus])
+        },
+        PluginTestFunctionSync: function(Argus1, Argus2, Argus3, Argus4) {
+          // 通知Native层plugintest扩展插件运行“PluginTestFunctionSync”方法并同步返回结果
+          return B.execSync(_BARCODE, 'PluginTestFunctionSync', [Argus1, Argus2, Argus3, Argus4])
+        }
+      }
+      window.plus.vuexplugin = vuexplugin
+      // Android复写返回键操作
+      plus.key.addEventListener('backbutton', function() {
+        let currentRouteName = _this.$router.currentRoute.name
+        console.log('currentRouteName=' + currentRouteName)
+        if (currentRouteName === 'Resource' || currentRouteName === 'Main' || currentRouteName === 'Me') { // index
+          plus.runtime.quit()
+        } else {
+          // _this.$router.back(-1)
+        }
+      }, false)
+    }, true)
   },
   created() {
     console.log('created')

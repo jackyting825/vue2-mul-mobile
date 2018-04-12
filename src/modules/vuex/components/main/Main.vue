@@ -1,5 +1,5 @@
 <template>
-<div class="content">
+<div class="content transition-wrapper">
   <div class="top">
     <p>
       主页面
