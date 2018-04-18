@@ -18,17 +18,19 @@
 
 <script>
 import Tab from './components/tab/Tab'
+import Vue from 'vue'
 
 import {
   Toast,
   Header
 } from 'mint-ui'
 
+Vue.component(Header.name, Header)
+
 export default {
   name: 'app',
   components: {
-    Tab,
-    Header
+    Tab
   },
   data() {
     return {

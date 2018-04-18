@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'header',
+  name: 'myHeader',
   data() {
     return {
 

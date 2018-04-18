@@ -116,6 +116,13 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 本项目是多页面结构,
 modules下存放各个页面,每个页面类似一个单页面应用.有自己的组件路由,需要按照文件夹的方式独立拜访
 
+/modules/alloyimgae ->alloyimgae图像库的使用Demo http://localhost:8081/alloyimage.html
+/modules/i18n ->国际化demo http://localhost:8081/i18n.html
+/modules/index ->默认的首页,使用了mint-ui按需加载组件,vue-router,(以及多页面超链接跳转,移动端通常用不着),包含通过dcloud和APP原生部分交互使用demo http://localhost:8081
+/modules/login ->vue-router使用Demo http://localhost:8081/login.html
+/modules/test ->axios网络请求数据使用Demo http://localhost:8081/test.html
+/modules/vuex ->vuex,vue-router,dcloud,路由转场动画综合使用Demo http://localhost:8081/vuex.html
+
 >图片资源存放到static文件夹下面对应的目录
 
 >JavaScript工具类存放在src/utils下

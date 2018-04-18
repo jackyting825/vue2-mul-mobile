@@ -40,6 +40,7 @@ export default {
   },
   mounted() {
     console.log('mounted')
+    Toast('success')
   },
   beforeCreate() {
     console.log('beforeCreate')
