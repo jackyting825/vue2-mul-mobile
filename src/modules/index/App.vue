@@ -3,6 +3,7 @@
   <h1>index页面(<small><a href="./login.html">登录</a></small>)</h1>
   <button @click="testClick">测试原生传递的数据</button>
   <button @click="backto">退出到原生</button>
+  <button @click="backtoActivity">进入原生Login Activity</button>
   <div>{{msg}}</div>
   <tab></tab>
   <keep-alive>
@@ -74,6 +75,15 @@ export default {
     console.log('beforeMount')
   },
   methods: {
+    backtoActivity() {
+      let _this = this
+      // 获取当前Activity
+      let curr = plus.android.runtimeMainActivity()
+      // 通过5 sdk 插件的invoke方法起调对象方法
+      // 模拟传递的参数
+      let params = ['我是增加的一个参数值', _this.msg]
+      plus.android.invoke('com.bz.nativeapp.plus_helper.PlusActivityHelper', 'jumpToLoginActivity', curr, params)
+    },
     backto() {
       if (plus.os.name === 'iOS') {
         let notiClass = plus.ios.importClass('NSNotificationCenter')
