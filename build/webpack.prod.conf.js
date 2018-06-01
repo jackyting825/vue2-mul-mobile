@@ -32,7 +32,15 @@ var webpackConfig = merge(baseWebpackConfig, {
       'process.env': env
     }),
     new webpack.optimize.UglifyJsPlugin({
+      // 最紧凑的输出
+      beautify: false,
+      // 删除所有的注释
+      comments: true,
       compress: {
+        // 可移除掉代码中的 console
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log'],
         warnings: false
       },
       sourceMap: true
