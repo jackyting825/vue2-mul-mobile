@@ -1,31 +1,11 @@
-/**
-* 路由转场动画,transition-wrapper 须用在子界面的最外层div上
-**/
-.transition-wrapper {
-  position: absolute;
-  width: 100%;
-  transition: all .8s cubic-bezier(.55, 0, .1, 1);
-  -webkit-transition: all .5s cubic-bezier(.55, 0, .1, 1);
-  -moz-transition: all .5s cubic-bezier(.55, 0, .1, 1);
+body {
+  background-color: beige !important; /*全局背景色防止转场出现残影*/
+}
+/* 去除Unable to preventDefault inside passive event listener警告 */
+* {
+  touch-action: pan-y;
 }
 
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
-
-.slide-left-enter, .slide-right-leave-active {
-  opacity: 0;
-  -webkit-transform: translate3d(50px, 50, 0);
-  -moz-transition: translate3d(50px, 0, 0);
-  transform: translate3d(50px, 0, 0);
-}
-
-.slide-left-leave-active, .slide-right-enter {
-  opacity: 0;
-  -webkit-transform: translate3d(-50px, 0, 0);
-  -moz-transition: translate3d(-50px, 0, 0);
-  transform: translate3d(-50px, 0, 0);
-}
 /**
 * 以下是禁止手机长按出现复制菜单
 **/

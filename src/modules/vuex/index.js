@@ -1,17 +1,23 @@
-import 'normalize.css'  // css reset
-import 'mint-ui/lib/style.css'  // mint-ui css
-import '../../assets/css/common.css' // 路由动画和禁止手机长按出现复制菜单
+import 'normalize.css' // css reset
+import 'mint-ui/lib/style.css' // mint-ui css
+import '../../assets/css/common.css'
 import Vue from 'vue'
 import App from './App'
+import MintUI from 'mint-ui' // mint-ui
 import fastclick from 'fastclick' // 去除手机点击延迟300ms
 import router from './router'
 import storeConfig from './store/store'
-import Navigation from 'vue-navigation'
+// import VConsole from 'vconsole'
+import vueg from 'vueg'
+import 'vueg/css/transition-min.css'
 
-Vue.use(Navigation, {router})
+Vue.use(vueg, router) // ←注意这一句应该在router实例化之后
+
 Vue.config.productionTip = false
 
 fastclick.attach(document.body)
+Vue.use(MintUI)
+// window.vConsole = new VConsole()
 /* eslint-disable no-new */
 new Vue({
   router,

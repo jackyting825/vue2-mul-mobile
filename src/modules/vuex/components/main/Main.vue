@@ -1,5 +1,5 @@
 <template>
-<div class="content transition-wrapper">
+<div class="content">
   <div class="top">
     <p>
       主页面
@@ -18,11 +18,7 @@
     <router-link tag="div" to="/secPage">
       <a href="javascript:void(0)">进入下一级页面</a>
     </router-link>
-    <transition :name="transitionName">
-      <navigation>
-        <router-view/>
-      </navigation>
-    </transition>
+    <router-view v-transition style="min-height:100vh"></router-view>
   </div>
   <div class="bottom">
   </div>
@@ -31,7 +27,7 @@
 
 <script>
 import Hello from '@components/Hello'
-import logo1 from '~/images/index/logo1.png'
+import logo1 from '../../../../../static/images/index/logo1.png'
 import store from '../../store/store'
 import {
   mapMutations,
