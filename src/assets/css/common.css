@@ -56,25 +56,33 @@ input {
 }
 
 .slide-right-enter-active,
+.slide-right-enter-to,
 .slide-right-leave-active,
+.slide-right-leave-to,
 .slide-left-enter-active,
+.slide-left-enter-to,
+.slide-left-leave-to,
 .slide-left-leave-active {
   will-change: transform;
-  transition: all 240ms;
+  transition: all 800ms;
   position: absolute;
 }
+
 .slide-right-enter {
   opacity: 0;
   transform: translate3d(-100%, 0, 0);
 }
+
 .slide-right-leave-active {
   opacity: 0;
   transform: translate3d(100%, 0, 0);
 }
+
 .slide-left-enter {
   opacity: 0;
   transform: translate3d(100%, 0, 0);
 }
+
 .slide-left-leave-active {
   opacity: 0;
   transform: translate3d(-100%, 0, 0);
