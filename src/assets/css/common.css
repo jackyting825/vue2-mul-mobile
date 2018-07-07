@@ -1,11 +1,29 @@
+/* #app {
+  -webkit-transform: translateZ(0) !important;
+  -moz-transform: translateZ(0) !important;
+  -ms-transform: translateZ(0) !important;
+  -o-transform: translateZ(0) !important;
+  transform: translateZ(0) !important;
+
+  -webkit-backface-visibility: hidden !important;
+  -moz-backface-visibility: hidden !important;
+  -ms-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+
+  -webkit-perspective: 1000 !important;
+  -moz-perspective: 1000 !important;
+  -ms-perspective: 1000 !important;
+  perspective: 1000 !important;
+} */
+
 body {
-  background-color: beige !important; /*全局背景色防止转场出现残影*/
+  background-color: rgba(0, 0, 0, 0) !important;
 }
+
 /* 去除Unable to preventDefault inside passive event listener警告 */
 * {
   touch-action: pan-y;
 }
-
 /**
 * 以下是禁止手机长按出现复制菜单
 **/
@@ -26,4 +44,38 @@ body {
 input {
   -webkit-user-select: auto;
   /*webkit浏览器*/
+}
+
+/*所有使用router-view的地方增加该样式 */
+.router-view {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.slide-right-enter-active,
+.slide-right-leave-active,
+.slide-left-enter-active,
+.slide-left-leave-active {
+  will-change: transform;
+  transition: all 240ms;
+  position: absolute;
+}
+.slide-right-enter {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.slide-left-enter {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.slide-left-leave-active {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
 }

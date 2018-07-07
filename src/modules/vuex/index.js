@@ -8,10 +8,6 @@ import fastclick from 'fastclick' // 去除手机点击延迟300ms
 import router from './router'
 import storeConfig from './store/store'
 // import VConsole from 'vconsole'
-import vueg from 'vueg'
-import 'vueg/css/transition-min.css'
-
-Vue.use(vueg, router) // ←注意这一句应该在router实例化之后
 
 Vue.config.productionTip = false
 

@@ -15,10 +15,15 @@
       <button @click="reduceCount1Action">延迟2秒异步减少1</button>
     </p>
     <br/>
+    <img :src="imageUrl" />
     <router-link tag="div" to="/secPage">
       <a href="javascript:void(0)">进入下一级页面</a>
     </router-link>
-    <router-view v-transition style="min-height:100vh"></router-view>
+    <transition>
+        <keep-alive>
+          <router-view class="router-view"></router-view>
+        </keep-alive>
+      </transition>
   </div>
   <div class="bottom">
   </div>
@@ -41,8 +46,7 @@ export default {
   },
   data() {
     return {
-      imageUrl: logo1,
-      transitionName: 'fade'
+      imageUrl: logo1
     }
   },
   created() {},

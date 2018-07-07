@@ -15,21 +15,25 @@ export default new Router({
   {
     path: '/main',
     name: 'Main',
+    meta: { index: 0 }, // meta对象的index用来定义当前路由的层级,由小到大,由低到高
     component: Main
   },
   {
     path: '/resource',
     name: 'Resource',
+    meta: { index: 2 }, // meta对象的index用来定义当前路由的层级,由小到大,由低到高
     component: Resource
   },
   {
     path: '/me',
     name: 'Me',
+    meta: { index: 3 }, // meta对象的index用来定义当前路由的层级,由小到大,由低到高
     component: Me
   },
   {
     path: '/secPage',
     name: 'secPage',
+    meta: { index: 4 }, // meta对象的index用来定义当前路由的层级,由小到大,由低到高
     component: Secpage
   }
   ]

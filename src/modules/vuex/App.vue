@@ -4,7 +4,11 @@
       <mt-header fixed title="我是主界面title"></mt-header>
     </div>
     <div class="content" >
-      <router-view v-transition style="min-height:100vh"></router-view>
+      <transition :name="transitionName">
+          <keep-alive>
+            <router-view class="router-view"></router-view>
+          </keep-alive>
+        </transition>
     </div>
     <div class="footer">
       <tab></tab>
@@ -24,7 +28,21 @@ export default {
     Header
   },
   data() {
-    return {}
+    return {
+      transitionName: ''
+    }
+  },
+  watch: {
+    // 使用watch 监听$router的变化
+    $route(to, from) {
+      // 如果to索引大于from索引,判断为前进状态,反之则为后退状态
+      if (to.meta.index > from.meta.index) {
+        // 设置动画名称
+        this.transitionName = 'slide-left'
+      } else {
+        this.transitionName = 'slide-right'
+      }
+    }
   },
   mounted() {
     console.log('mounted')
@@ -95,7 +113,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
   display: flex;
   flex-direction: column;
@@ -109,10 +127,10 @@ export default {
   left: 0;
 }
 .mint-header {
-  line-height: 0.53rem !important;
+  line-height: 1.2rem !important;
 }
 .content {
-  margin-top: 0.53rem;
+  margin-top: 1.2rem;
 }
 
 .footer {

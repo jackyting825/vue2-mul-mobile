@@ -16,6 +16,9 @@
     <button @click="send">调用异步方式发送指令</button>
     <button @click="send1">调用异步方式发送指令</button>
     <a href="javascript:void(0)" @click="goback">返回上一页</a>
+
+    <mt-button size="large" type="primary">primary</mt-button>
+
   </div>
 </template>
 
@@ -23,12 +26,13 @@
 import Hello from '@components/Hello'
 import store from '../../store/store'
 import { mapState, mapGetters } from 'vuex'
-import { Toast } from 'mint-ui'
+import { Toast, Button } from 'mint-ui'
 
 export default {
   store,
   components: {
-    Hello
+    Hello,
+    Button
   },
   data() {
     return {
