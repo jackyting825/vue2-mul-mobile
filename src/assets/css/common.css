@@ -64,7 +64,7 @@ input {
 .slide-left-leave-to,
 .slide-left-leave-active {
   will-change: transform;
-  transition: all 800ms;
+  transition: all 700ms;
   position: absolute;
 }
 

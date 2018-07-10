@@ -6,6 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
     <!-- <link rel="stylesheet" type="text/css" href="../static/plugins/mui/css/mui.min.css"> -->
     <script src="../static/plugins/lib-flexible/flexible_css.debug.js"></script>
     <script src="../static/plugins/lib-flexible/flexible.debug.js"></script>
@@ -15,5 +16,12 @@
     <!-- built files will be auto injected -->
 
     <script src="../static/plugins/mui/js/mui.min.js"></script>
+    <!-- 先引入 Vue -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vuex"></script>
 </body>
 </html>

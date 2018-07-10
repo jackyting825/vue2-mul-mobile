@@ -31,7 +31,12 @@ var baseWebpackConfig = {
   externals: {
     //添加外部文件的引用 2017年6月9日17:04:58
     'zepto': 'Zepto',
-    'mui': 'mui'
+    'mui': 'mui',
+    'vue': 'Vue',
+    'vue-router': 'VueRouter',
+    'vuex': 'Vuex',
+    'axios': 'axios',
+    'mint': 'mint'
   },
   module: {
     rules: [

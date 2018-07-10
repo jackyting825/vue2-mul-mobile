@@ -11,8 +11,8 @@ Vue.config.productionTip = false
 const i18n = new VueI18n({
   locale: 'zh_CN',
   messages: {
-    'zh_CN': require('../../assets/lang/zh'),   // 中文语言包
-    'en_US': require('../../assets/lang/en')    // 英文语言包
+    'zh_CN': require('~/lang/zh'),   // 中文语言包
+    'en_US': require('~/lang/en')    // 英文语言包
   }
 })
 
