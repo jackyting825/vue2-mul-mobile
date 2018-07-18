@@ -49,6 +49,19 @@ export function base64ToImageFile(urlData) {
 }
 
 /**
+ * 二进制编码文件数据转blob对象
+ * @param {二进制编码数据} binaryData
+ */
+export function binaryToBlob(binaryData) {
+  let arr = new Uint8Array(binaryData.length)
+  for (let i = 0, l = binaryData.length; i < l; i++) {
+    arr[i] = binaryData.charCodeAt(i)
+  }
+  let blob = new Blob([arr])
+  return blob
+}
+
+/**
 *等比缩放图片到某个尺寸
 @param {图片,必选} img
 @param {要缩放到的最大宽度,可选.默认是浏览器窗口文档显示区的宽度} maxWidth
