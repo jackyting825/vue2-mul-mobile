@@ -8,7 +8,7 @@
       "libraryName": "mint-ui",
       "style": true
     }
-  ]]],
+  ]], "syntax-dynamic-import"],
   "comments": false,
   "env": {
     "test": {
