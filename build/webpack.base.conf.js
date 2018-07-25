@@ -36,7 +36,7 @@ var baseWebpackConfig = {
     'vue-router': 'VueRouter',
     'vuex': 'Vuex',
     'axios': 'axios',
-    'mint': 'mint'
+    'mint-ui': 'MINT'
   },
   module: {
     rules: [

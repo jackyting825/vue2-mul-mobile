@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import 'normalize.css'  // css reset
 import '../../assets/css/common.css' // 路由动画和禁止手机长按出现复制菜单
-import 'mint-ui/lib/style.css'  // mint-ui css
+// import 'mint-ui/lib/style.css'  // mint-ui css
 import Vue from 'vue'
 import App from './App'
 import fastclick from 'fastclick' // 去除手机点击延迟300ms
