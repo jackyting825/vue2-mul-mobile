@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import LoginOne from '../components/loginOne/LoginOne'
-import LoginTwo from '../components/loginTwo/LoginTwo'
+const LoginOne = () => import('../components/loginOne/LoginOne')
+const LoginTwo = () => import('../components/loginTwo/LoginTwo')
 
 Vue.use(Router)
 

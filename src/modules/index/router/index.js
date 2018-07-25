@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from '../components/main/Main'
-import Resource from '../components/resource/Resource'
-import Me from '../components/me/Me'
+const Main = () => import('../components/main/Main')
+const Resource = () => import('../components/resource/Resource')
+const Me = () => import('../components/me/Me')
 
 Vue.use(Router)
 

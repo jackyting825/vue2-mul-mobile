@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from '../components/main/Main'
-import Resource from '../components/resource/Resource'
-import Me from '../components/me/Me'
-import Secpage from '../components/secpage/Secpage'
+const Main = () => import('../components/main/Main')
+const Resource = () => import('../components/resource/Resource')
+const Me = () => import('../components/me/Me')
+const Secpage = () => import('../components/secpage/Secpage')
 
 Vue.use(Router)
 
