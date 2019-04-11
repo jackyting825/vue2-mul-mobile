@@ -21,6 +21,8 @@ html {
 }
 body {
   background-color: rgba(0, 0, 0, 0) !important;
+  /* IOS 区域滚动卡顿不丝滑,该属性产生会产生未知的bug */
+  /* -webkit-overflow-scrolling: touch; */ 
 }
 
 /* 去除Unable to preventDefault inside passive event listener警告 */
@@ -42,6 +44,13 @@ body {
   -ms-user-select: none;
   /*IE10*/
   user-select: none;
+  /* 某些手机上点击时元素高亮闪一下 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
+  display: none;
 }
 
 input {
